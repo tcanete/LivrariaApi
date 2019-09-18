@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LivrariaApi.Controllers {
 
-    [Route("api/[controller]")]
+    [Route("public/v1/[controller]")]
     [ApiController]
     public class PedidoController {
 

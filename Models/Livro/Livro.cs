@@ -1,7 +1,7 @@
 namespace LivrariaApi.Models {
     public class Livro
     {
-        public int Id {get; set;}
+        public long Id {get; set;}
         public string Nome {get; set;}
         public string Autor { get; set; }
         public int QuantidadePaginas {get; set;}
@@ -9,6 +9,15 @@ namespace LivrariaApi.Models {
 
         public Livro(string nome, string autor, int quantidadePaginas, int ano)
         {
+            this.Nome = nome;
+            this.Autor = autor;
+            this.QuantidadePaginas = quantidadePaginas;
+            this.Ano = ano;
+        }
+
+        public Livro(long id, string nome, string autor, int quantidadePaginas, int ano)
+        {
+            this.Id = id;
             this.Nome = nome;
             this.Autor = autor;
             this.QuantidadePaginas = quantidadePaginas;
