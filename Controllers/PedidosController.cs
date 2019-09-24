@@ -52,5 +52,21 @@ namespace LivrariaApi.Controllers
                 Livros = livros
             };
         }
+
+        [HttpPost("carrinho")]
+        public ActionResult CriarCarrinho()
+        {
+
+
+            return new OkResult();
+        }
+
+        [HttpPut("carrinho")]
+        public ActionResult AtualizarCarrinho()
+        {
+            
+
+            return new OkResult();
+        }
     }
 }
