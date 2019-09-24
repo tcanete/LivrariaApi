@@ -14,6 +14,9 @@ namespace LivrariaApi.Controllers
     public class LivrosController : ControllerBase
     {
         // GET api/livros
+        /// <summary>
+        /// Lista os livros cadastrados
+        /// </summary>
         [HttpGet]
         public ActionResult<IEnumerable<Livro>> Get([FromQuery] string nome, [FromQuery] string autor, [FromQuery] int ano)
         {
@@ -62,7 +65,7 @@ namespace LivrariaApi.Controllers
         }
 
         // POST api/livros/comentario
-        [HttpPost("/comentario")]
+        [HttpPost("comentario")]
         public ActionResult<Comentario> Post([FromBody] ComentarioDTO comentarioDTO)
         {
             if (comentarioDTO != null && !string.IsNullOrEmpty(comentarioDTO.Comentario) && comentarioDTO.IdLivro != 0)
