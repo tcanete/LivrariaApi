@@ -2,13 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LivrariaApi.Models.Pedido;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LivrariaApi.Controllers {
 
-    [Route("public/v1/[controller]")]
+    [Route("v1/public/[controller]")]
     [ApiController]
-    public class PedidoController {
+    public class PedidosController {
 
         // GET api/pedido
         [HttpGet]
@@ -22,6 +23,15 @@ namespace LivrariaApi.Controllers {
         public ActionResult<string> Get(int id)
         {
             return "pedido" + id;
+        }
+
+        // POST api/pedido
+        [HttpPost]
+        public ActionResult<Pedido> Post([FromBody] Pedido pedido)
+        {
+            pedido.Id = DateTime.Now.Ticks;
+
+            return pedido;
         }
     }
 }
