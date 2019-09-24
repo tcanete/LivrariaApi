@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace LivrariaApi.Models.Livro
+namespace LivrariaApi.Models.Livros
 {
     public class Livro
     {

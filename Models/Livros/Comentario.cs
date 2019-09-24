@@ -1,4 +1,4 @@
-namespace LivrariaApi.Models.Livro
+namespace LivrariaApi.Models.Livros
 {
     public class Comentario
     {

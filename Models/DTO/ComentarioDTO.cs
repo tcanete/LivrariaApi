@@ -1,4 +1,4 @@
-using LivrariaApi.Models.Livro;
+using LivrariaApi.Models.Livros;
 
 namespace LivrariaApi.Models.DTO
 {

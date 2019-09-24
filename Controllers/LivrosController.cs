@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using LivrariaApi.Mocks;
 using LivrariaApi.Models.DTO;
-using LivrariaApi.Models.Livro;
+using LivrariaApi.Models.Livros;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LivrariaApi.Controllers
