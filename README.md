@@ -5,7 +5,7 @@ Atividade Aula 3
 1. As rotas estão padronizadas em "v1/public/..." com seu substantivo relacionado complementando
 1. Cada entidade tem suas operações necessárias mapeadas
 1. As rotas estão organizadas de acordo com sua entidade no formato colecao e colecao/item
-1. è possivel apagar os comentario em lote passando os id dos livros desejados
+1. É possivel apagar os comentario em lote passando os id dos livros desejados
 1. As Datas estão sendo retornadas no formato ISO 8601
 1. A API está documentada com a ajuda do Swagger
 1. A API roda em uma conexão HTTPS
