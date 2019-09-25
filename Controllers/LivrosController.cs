@@ -18,7 +18,7 @@ namespace LivrariaApi.Controllers
         /// Lista os livros cadastrados
         /// </summary>
         [HttpGet]
-        public ActionResult<IEnumerable<Livro>> Get([FromQuery] string nome, [FromQuery] string autor, [FromQuery] int ano)
+        public ActionResult<IEnumerable<Livro>> Get([FromQuery] string nome, [FromQuery] string autor, [FromQuery] int ano, [FromQuery]long idInicio, [FromQuery] int qtdRegistros)
         {
             var livros = new LivroMock().ListarLivros(nome, autor, ano);
 
@@ -26,6 +26,9 @@ namespace LivrariaApi.Controllers
         }
 
         // GET api/livros/5
+        /// <summary>
+        /// Busca um livro especifico
+        /// </summary>
         [HttpGet("{id}")]
         public ActionResult<Livro> Get(long id)
         {
@@ -42,6 +45,9 @@ namespace LivrariaApi.Controllers
         }
 
         // POST api/livros
+        /// <summary>
+        /// Cadastra um livro
+        /// </summary>
         [HttpPost]
         public ActionResult<Livro> Post([FromBody] Livro livro)
         {
@@ -51,6 +57,9 @@ namespace LivrariaApi.Controllers
         }
 
         // PUT api/livros/5
+        /// <summary>
+        /// Atualiza um livro
+        /// </summary>
         [HttpPut("{id}")]
         public ActionResult Put(int id, [FromBody] string value)
         {
@@ -58,6 +67,9 @@ namespace LivrariaApi.Controllers
         }
 
         // DELETE api/livros/5
+        /// <summary>
+        /// Exclui um livro
+        /// </summary>
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
@@ -65,6 +77,9 @@ namespace LivrariaApi.Controllers
         }
 
         // POST api/livros/comentario
+        /// <summary>
+        /// Adiciona comentario a um livro
+        /// </summary>
         [HttpPost("comentario")]
         public ActionResult<Comentario> Post([FromBody] ComentarioDTO comentarioDTO)
         {

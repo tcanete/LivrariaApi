@@ -15,26 +15,50 @@ namespace LivrariaApi.Controllers
     [ApiController]
     public class PedidosController
     {
+        /// <summary>
+        /// Lista os pedidos do usuario
+        /// </summary>
         [HttpGet("usuario/{id}")]
         public ActionResult<List<Pedido>> GetPedidosUsuario(int id)
         {
-            var pedidos = new PedidosMock().ListarPedidos(id);
+            var pedidos = new PedidosMock().ListarPedidosUsuario(id);
             return pedidos;
         }
 
         // GET api/pedidos/5
+        /// <summary>
+        /// Busca um pedido pelo ID
+        /// </summary>
         [HttpGet("{id}")]
         public ActionResult<Pedido> Get(int id)
         {
-            return new Pedido();
+            return new Pedido
+            {
+                Id = id,
+                Status = "Entregue",
+                UsuarioId = id,
+                Livros = new List<Models.Livros.Livro>(){
+                    new Models.Livros.Livro(){
+                        Ano = 1234,
+                        Autor = "José",
+                        Id = 1111,
+                        Nome = "Nome do Livro",
+                        QuantidadePaginas = 100,
+                        Comentarios = new List<Models.Livros.Comentario>()
+                    }
+                }
+            };
         }
 
         // POST api/pedidos
+        /// <summary>
+        /// Cria um pedido a partir do carrinho
+        /// </summary>
         [HttpPost]
         public ActionResult<Pedido> Post([FromBody] PedidoDTO pedidoDTO)
         {
             //pedido.Id = DateTime.Now.Ticks;
-            var livros = pedidoDTO.IdsLivros.Select(id => new Livro
+            var livros = new int[]{1,2,3,4}.Select(id => new Livro
             {
                 Id = id,
                 Nome = "Livro " + id,
@@ -49,24 +73,35 @@ namespace LivrariaApi.Controllers
                 Id = 12333,
                 UsuarioId = pedidoDTO.UsuarioId,
                 Status = "Processando",
-                Livros = livros
+                Livros = livros,
+                FormaPagamento = pedidoDTO.FormaPagamento,
+                Valor = pedidoDTO.Valor
             };
         }
 
-        [HttpPost("carrinho")]
-        public ActionResult CriarCarrinho()
+        /// <summary>
+        /// Cria um carrinho com o id do usuario
+        /// </summary>
+        [HttpPost("carrinho/{id}")]
+        public ActionResult<Carrinho> CriarCarrinho(long id)
         {
+            var carrinho = new CarrinhoMock().CriarCarrinho(id);
 
-
-            return new OkResult();
+            return carrinho;
         }
 
+        /// <summary>
+        /// Atualiza os itens do carrinho
+        /// </summary>
         [HttpPut("carrinho")]
-        public ActionResult AtualizarCarrinho()
+        public ActionResult<Carrinho> AtualizarCarrinho([FromBody] Carrinho carrinho)
         {
-            
+            if (carrinho == null)
+            {
+                return new BadRequestResult();
+            }
 
-            return new OkResult();
+            return new CarrinhoMock().AtualizarCarrinho(carrinho);
         }
     }
 }

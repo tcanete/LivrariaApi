@@ -5,7 +5,7 @@ namespace LivrariaApi.Mocks
 {
     public class PedidosMock
     {
-        public List<Pedido> ListarPedidos(long id){
+        public List<Pedido> ListarPedidosUsuario(long id){
 
             return new List<Pedido>(){
                 new Pedido{

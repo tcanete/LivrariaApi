@@ -8,5 +8,7 @@ namespace LivrariaApi.Models.Pedidos {
         public long UsuarioId { get; set; }
         public List<Livro> Livros { get; set; }
         public string Status { get; set; }
+        public string FormaPagamento { get; set; }
+        public decimal Valor { get; set; }
     }
 }
