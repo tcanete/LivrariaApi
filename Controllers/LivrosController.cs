@@ -56,14 +56,16 @@ namespace LivrariaApi.Controllers
             return livro;
         }
 
-        // PUT api/livros/5
+        // PUT api/livros
         /// <summary>
-        /// Atualiza um livro
+        /// Apaga comentários em lotes a partis de id de livros
         /// </summary>
-        [HttpPut("{id}")]
-        public ActionResult Put(int id, [FromBody] string value)
-        {
-            return StatusCode(501);
+        [HttpPut]
+        public ActionResult Put([FromBody] List<long> ids)
+        {            
+            //operacao demorada
+
+            return Ok();
         }
 
         // DELETE api/livros/5

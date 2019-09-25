@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using LivrariaApi.Models.Livros;
 
@@ -10,5 +11,6 @@ namespace LivrariaApi.Models.Pedidos {
         public string Status { get; set; }
         public string FormaPagamento { get; set; }
         public decimal Valor { get; set; }
+        public DateTime DataPedido { get; set; }
     }
 }

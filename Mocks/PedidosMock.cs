@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using LivrariaApi.Models.Pedidos;
 
@@ -21,7 +22,8 @@ namespace LivrariaApi.Mocks
                             QuantidadePaginas = 100,
                             Comentarios = new List<Models.Livros.Comentario>()
                         }
-                    }
+                    },
+                    DataPedido = DateTime.Now
                 },
                 new Pedido{
                     Id = 124,
@@ -42,7 +44,8 @@ namespace LivrariaApi.Mocks
                                 }
                             }
                         }
-                    }
+                    },
+                    DataPedido = DateTime.Now
                 }
             };
         }
